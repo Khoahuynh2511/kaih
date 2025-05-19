@@ -1,5 +1,5 @@
 {
-  "name": "enscribe.dev",
+  "name": "Kai H.dev",
   "type": "module",
   "version": "3.0.0",
   "private": true,
@@ -21,6 +21,7 @@
     "@astrojs/tailwind": "^5.1.4",
     "@hbsnow/rehype-sectionize": "^1.0.7",
     "@iconify-json/fa6-brands": "^1.2.5",
+    "@iconify-json/fa6-solid": "^1.2.3",
     "@iconify-json/lucide": "^1.2.20",
     "@iconify-json/mdi": "^1.2.2",
     "@radix-ui/react-avatar": "^1.1.2",

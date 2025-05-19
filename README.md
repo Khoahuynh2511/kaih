@@ -1,23 +1,157 @@
-![Showcase Card](/public/static/showcase-card.png)
 
-<div align="center">
 
-## enscribe.dev
-
-[![CodeFactor]](https://www.codefactor.io/repository/github/jktrn/enscribe.dev)
-![Stargazers]
-[![Code License]](LICENSE.md)
-[![Content License]](LICENSE.content.md)
-
-[enscribe.dev](https://enscribe.dev) is my personal information security blog—built with [Astro](https://astro.build/), [Tailwind](https://tailwindcss.com/), and [shadcn/ui](https://ui.shadcn.com/). Based on my personal blogging template, [astro-erudite](https://github.com/jktrn/astro-erudite).
+[kaih.dev](https://kaih.dev) là website portfolio cá nhân của tôi—được xây dựng bằng [Astro](https://astro.build/), [Tailwind](https://tailwindcss.com/), và [shadcn/ui](https://ui.shadcn.com/).
 
 </div>
 
 ---
 
-## Technology Stack
+## Cấu trúc thư mục
 
-This is a list of the various technologies used to build this website:
+```
+src/
+├── components/     # Các component tái sử dụng
+├── content/       # Nội dung blog và authors
+│   ├── authors/   # Thông tin tác giả
+│   └── blog/      # Các bài viết blog
+├── layouts/       # Layout chung cho các trang
+├── pages/         # Các trang của website
+└── styles/        # CSS và styling
+public/            # Assets tĩnh (ảnh, fonts,...)
+```
+
+## Hướng dẫn cập nhật
+
+### 1. Cập nhật Projects
+
+Các dự án được định nghĩa trong `src/pages/projects.astro`. Mỗi dự án cần có các thông tin:
+
+```typescript
+{
+  title: "Tên dự án",
+  date: "Tháng/Năm",
+  description: "Mô tả ngắn gọn",
+  technologies: ["Công nghệ 1", "Công nghệ 2", ...],
+  projectUrl: "Link Google Drive",
+  achievements: [
+    "Thành tựu 1",
+    "Thành tựu 2",
+    ...
+  ],
+  imageUrl: "/tên-ảnh.jpg", // Đặt ảnh trong thư mục public/
+  category: "AI/ML" // Chọn từ: AI/ML, Data Science, Web Development, Research
+}
+```
+
+### 2. Cập nhật Blog
+
+#### 2.1. Tạo bài viết mới
+
+1. Tạo thư mục mới trong `src/content/blog/` với tên bài viết
+2. Tạo file `index.mdx` trong thư mục đó với cấu trúc:
+
+```mdx
+---
+title: "Tiêu đề bài viết"
+date: "YYYY-MM-DD"
+description: "Mô tả ngắn gọn"
+authors: ["enscribe"] // Tên tác giả
+image: {
+  src: "/tên-ảnh.jpg", // Đặt ảnh trong thư mục public/
+  alt: "Mô tả ảnh"
+}
+---
+
+Nội dung bài viết ở đây...
+```
+
+#### 2.2. Định dạng bài viết
+
+- Sử dụng Markdown để viết nội dung
+- Hỗ trợ các tính năng:
+  - Code blocks với syntax highlighting
+  - Hình ảnh
+  - Links
+  - Tables
+  - Math equations (KaTeX)
+
+### 3. Cập nhật Thông tin cá nhân
+
+#### 3.1. Thông tin cơ bản
+
+Cập nhật trong `src/consts.ts`:
+```typescript
+export const SITE = {
+  TITLE: "Kai H",
+  EMAIL: "dangkhoahuynh2511@gmail.com",
+  SITEURL: "https://kaih.dev",
+  // ...
+}
+```
+
+#### 3.2. Social Links
+
+Cập nhật trong `src/consts.ts`:
+```typescript
+export const SOCIAL_LINKS = [
+  {
+    href: "link",
+    label: "Tên mạng xã hội",
+    icon: "tên-icon"
+  },
+  // ...
+]
+```
+
+### 4. Cập nhật Assets
+
+1. Ảnh dự án: Đặt trong `public/` với tên tương ứng
+2. Ảnh blog: Đặt trong `public/` và tham chiếu trong file .mdx
+3. Favicon: Thay thế các file trong `public/`:
+   - favicon.ico
+   - favicon-16x16.png
+   - favicon-32x32.png
+   - apple-touch-icon.png
+
+### 5. Chạy website locally
+
+```bash
+# Cài đặt dependencies
+npm install
+
+# Chạy development server
+npm run dev
+
+# Build cho production
+npm run build
+```
+
+### 6. Deploy
+
+Website được deploy tự động khi push lên main branch. Đảm bảo:
+
+1. Tất cả thay đổi đã được test locally
+2. Không có lỗi build
+3. Commit message rõ ràng, mô tả được thay đổi
+
+## Các lưu ý quan trọng
+
+1. Luôn backup dữ liệu trước khi thay đổi lớn
+2. Kiểm tra kỹ các link trước khi commit
+3. Tối ưu kích thước ảnh trước khi upload
+4. Đảm bảo nội dung phù hợp và chuyên nghiệp
+5. Cập nhật README khi có thay đổi về cấu trúc hoặc quy trình
+
+## Hỗ trợ
+
+Nếu có thắc mắc hoặc gặp vấn đề, vui lòng:
+1. Kiểm tra documentation
+2. Tạo issue trên repository
+3. Liên hệ qua email: dangkhoahuynh2511@gmail.com
+
+---
+
+## Technology Stack
 
 | Category            | Technology Name                                                                                    |
 | ------------------- | -------------------------------------------------------------------------------------------------- |
@@ -28,9 +162,6 @@ This is a list of the various technologies used to build this website:
 | Syntax Highlighting | [Shiki](https://github.com/shikijs/shiki) + [rehype-pretty-code](https://rehype-pretty.pages.dev/) |
 | Graphics            | [Figma](https://www.figma.com/)                                                                    |
 | Deployment          | [Vercel](https://vercel.com)                                                                       |
-
-> [!NOTE]
-> This site was previously built using [Next.js](https://nextjs.org) via the [timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog). If you wish to reference the codebase or utilize its components at that point (previously licensed via [Apache 2.0](https://github.com/jktrn/enscribe.dev/blob/ddda783b21d5d49783f4d98e9b06676af8f95031/LICENSE)), utilize the [v2.3.0](https://github.com/jktrn/enscribe.dev/releases/tag/v2.3.0) release or browse the tree at [`ddda783`](https://github.com/jktrn/enscribe.dev/tree/ddda783b21d5d49783f4d98e9b06676af8f95031).
 
 ---
 
@@ -52,42 +183,15 @@ The original MIT license is included in the full [LICENSE.md](LICENSE.md) file f
 
 All modifications and custom implementations made to the original template are proprietary and all rights are reserved. The code is publicly available for viewing and reference only. Modification, redistribution, or commercial use requires explicit permission from the copyright holder.
 
-From the [Website Code License](LICENSE.md#website-code-license) section:
-
-> This license applies specifically to the custom modifications made to the [jktrn/astro-erudite](https://github.com/jktrn/astro-erudite) template. It does not extend to the original template code, which remains under its original MIT license.
-
-From the [Disclaimer](LICENSE.md#disclaimer) section:
-
-> If you are interested in utilizing a similar website structure for your own means, please refer to the original template at [jktrn/astro-erudite](https://github.com/jktrn/astro-erudite), which is available under the MIT license and is free for use and modification.
-
 ### Website Content
 
 [![Content License]](LICENSE.content.md)
 
-From the [Website Content License](LICENSE.md#website-content-license) section:
-
-> The content of this website, including but not limited to text, images, graphics, MDX files/components, and any other materials (excluding code and design elements covered under the Website Code License above), is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0).
->
-> To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ or view [LICENSE.content.md](./LICENSE.content.md).
-
-For full license details and permission requests, please refer to the [LICENSE.md](LICENSE.md) file in this repository or contact [jason@enscribe.dev](mailto:jason@enscribe.dev).
+The content of this website is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0).
 
 ---
 
-### Star History
-
-<a href="https://star-history.com/#jktrn/enscribe.dev&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=jktrn/enscribe.dev&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=jktrn/enscribe.dev&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=jktrn/enscribe.dev&type=Date" />
- </picture>
-</a>
-
-
----
-
-Made with ♥ by [enscribe](https://enscribe.dev)!
+Made with ♥ by [Kai H](https://kaih.dev)!
 
 [cc-by-nc-nd]: http://creativecommons.org/licenses/by-nc-nd/4.0/
 [cc-by-nc-nd-shield]: https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg

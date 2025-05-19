@@ -108,9 +108,9 @@ const DiscordPresence = () => {
             </div>
           </div>
           <div className="flex flex-col gap-y-1 rounded-xl bg-secondary/50 p-3">
-            <span className="text-base leading-none">enscribe</span>
+            <span className="text-base leading-none">Kai H</span>
             <span className="text-xs leading-none text-muted-foreground">
-              @enscribe
+              @Kai H
             </span>
           </div>
           <div className="flex grow rounded-xl bg-secondary/50 px-3 py-2">

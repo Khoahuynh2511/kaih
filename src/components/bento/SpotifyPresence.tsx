@@ -17,7 +17,7 @@ const SpotifyPresence = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetch('https://lastfm-last-played.biancarosa.com.br/enscribe/latest-song')
+    fetch('https://lastfm-last-played.biancarosa.com.br/Kai H/latest-song')
       .then((response) => response.json())
       .then((data) => {
         setDisplayData(data.track)

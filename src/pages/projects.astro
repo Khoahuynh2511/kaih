@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Container from '../components/Container.astro'
+import ProjectDetail from '../components/ProjectDetail.astro'
+import ProjectFilter from '../components/ProjectFilter.astro'
+
+const categories = ['All', 'AI/ML', 'Data Science', 'Web Development', 'Research']
+const activeCategory = 'All'
+
+// Định nghĩa dự án với category
+const projects = [
+  {
+    title: "Classify Horses and Cows | EfficientNetB7 DL Network",
+    date: "June 2024",
+    description: "An image classification project using EfficientNetB7 deep learning network to accurately classify images of horses and cows.",
+    technologies: ["Python", "TensorFlow", "EfficientNetB7", "Computer Vision", "Jupyter Notebook"],
+    projectUrl: "https://drive.google.com/drive/folders/1X-xfm92FVwLajgr-c5sSBW8DFWmbUtNQ?usp=sharing",
+    achievements: [
+      "Built and deployed an EfficientNetB7 model to classify cattle and horses with ≃97% accuracy.",
+      "Optimized data preprocessing, training, and evaluation for performance."
+    ],
+    imageUrl: "/horses-cows.jpg",
+    category: "AI/ML"
+  },
+  {
+    title: "Reinforcement Learning for Flappy Bird",
+    date: "June 2024",
+    description: "Implementation of reinforcement learning techniques to train an AI agent to play Flappy Bird game autonomously.",
+    technologies: ["Python", "DQN", "Double DQN", "Reinforcement Learning", "OpenAI Gym", "Jupyter Notebook"],
+    projectUrl: "https://drive.google.com/drive/folders/1BfzibofyYlzwfiRyRD4ZkAwOXECOwnkt?usp=drive_link",
+    achievements: [
+      "Implemented Q-Learning and Double Q-Learning to train an AI agent for Flappy Bird in OpenAI Gym.",
+      "Designed reward structures, evaluated performance, and documented findings.",
+      "Strengthened collaboration and technical communication skills."
+    ],
+    imageUrl: "/flappy-bird.jpg",
+    category: "AI/ML"
+  },
+  {
+    title: "Video Retrieval from Text | CLIP, FAISS",
+    date: "November 2024",
+    description: "A system that enables retrieving videos based on text descriptions using CLIP embeddings and FAISS for efficient similarity search.",
+    technologies: ["Python", "CLIP", "FAISS", "Streamlit", "Deep Learning", "Natural Language Processing"],
+    projectUrl: "https://drive.google.com/drive/folders/1ZyYjAKhvJfzq0GwFXTETDLycvO3wZtA1?usp=drive_link",
+    achievements: [
+      "Successfully implemented a video retrieval system using CLIP and FAISS, enabling efficient search and retrieval based on textual input.",
+      "Optimized the embedding generation and indexing process for fast and accurate video retrieval.",
+      "Enhanced user experience by integrating the system with a Python-based interface for seamless interaction."
+    ],
+    imageUrl: "/video-retrieval.jpg",
+    category: "AI/ML"
+  },
+  {
+    title: "Mental Health Chatbot | Transformers, Langchain",
+    date: "November 2024",
+    description: "A chatbot designed to provide mental health support using advanced NLP techniques and language models.",
+    technologies: ["Python", "Transformers", "Langchain", "Streamlit", "NLP", "AI"],
+    projectUrl: "https://drive.google.com/drive/folders/18JLhpH8sFnZmD6Yf06nxKCNGBZDKK8q5?usp=drive_link",
+    achievements: [
+      "Developed a mental health chatbot using Transformers and Langchain, enabling intelligent and empathetic conversations.",
+      "Integrated advanced NLP capabilities for contextual understanding and sentiment analysis.",
+      "Built a user-friendly interface with Streamlit for seamless interaction."
+    ],
+    imageUrl: "/chatbot.jpg",
+    category: "AI/ML"
+  },
+  {
+    title: "Research of CEM-RL | Reinforcement Learning",
+    date: "November 2024",
+    description: "Research on Cross-Entropy Method for Reinforcement Learning (CEM-RL), a hybrid approach combining evolutionary and gradient-based methods.",
+    technologies: ["Python", "Reinforcement Learning", "CEM", "PyTorch", "Research"],
+    projectUrl: "https://drive.google.com/drive/folders/1NvmmCrwwxHBtfZoX4UMCuiMQAw4KyEOZ?usp=drive_link",
+    achievements: [
+      "Developed and tested CEM-RL, a hybrid approach combining evolutionary and gradient-based methods for policy search, achieving faster convergence and improved robustness.",
+      "Evaluated performance in simulated environments and documented insights for optimization strategies."
+    ],
+    imageUrl: "/cem-rl.jpg",
+    category: "Research"
+  }
+]
+---
+
+<Layout
+  title="Projects | Huynh Dang Khoa"
+  description="AI, Machine Learning, Data Science and Software Engineering projects by Huynh Dang Khoa"
+>
+  <Container class="py-10 max-w-5xl">
+    <div class="space-y-12">
+      <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold mb-4">My Projects</h1>
+        <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+          A collection of my projects in AI, Machine Learning, Data Science, and Software Engineering.
+          Each project demonstrates my skills, knowledge, and passion for technology.
+        </p>
+      </div>
+      
+      <ProjectFilter categories={categories} activeCategory={activeCategory} />
+      
+      <div class="space-y-8" id="projects-container">
+        {projects.map(project => (
+          <div id={project.category.toLowerCase().replace(/\s+/g, '-')} class="scroll-mt-24 project-item" data-category={project.category}>
+            <ProjectDetail
+              title={project.title}
+              date={project.date}
+              description={project.description}
+              technologies={project.technologies}
+              projectUrl={project.projectUrl}
+              achievements={project.achievements}
+              imageUrl={project.imageUrl}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </Container>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterLinks = document.querySelectorAll('.flex.flex-wrap.gap-2.mb-8 a');
+    const projectItems = document.querySelectorAll('.project-item');
+    
+    filterLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Thay đổi trạng thái active
+        filterLinks.forEach(l => l.classList.remove('bg-primary', 'text-primary-foreground'));
+        filterLinks.forEach(l => l.classList.add('bg-muted', 'text-muted-foreground'));
+        link.classList.remove('bg-muted', 'text-muted-foreground');
+        link.classList.add('bg-primary', 'text-primary-foreground');
+        
+        const category = link.textContent?.trim();
+        
+        if (category === 'All') {
+          // Hiển thị tất cả dự án
+          projectItems.forEach(item => {
+            item.style.display = 'block';
+          });
+        } else {
+          // Lọc dự án theo danh mục
+          projectItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            if (itemCategory === category) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        }
+      });
+    });
+  });
+</script> 

@@ -1,35 +1,34 @@
 ---
-import Link from '@/components/Link.astro'
-import { buttonVariants } from '@/components/ui/button'
-import type { Link as SocialLink } from '@/consts'
-import { cn } from '@/lib/utils'
+import Link from '../components/Link.astro'
+import { buttonVariants } from '../components/ui/button'
+import type { Link as SocialLink } from '../consts'
+import { SOCIAL_LINKS } from '../consts'
+import { cn } from '../lib/utils'
 import { Icon } from 'astro-icon/components'
 
 interface Props {
-  links: SocialLink[]
+  links?: SocialLink[]
   className?: string
 }
 
-const { links, className } = Astro.props
+const { links = SOCIAL_LINKS, className = '' } = Astro.props
 
-const iconMap = {
-  Website: 'lucide:globe',
-  GitHub: 'lucide:github',
-  LinkedIn: 'lucide:linkedin',
-  Twitter: 'lucide:twitter',
-  Email: 'lucide:mail',
-  RSS: 'lucide:rss',
+const icons = {
+  GitHub: 'fa6-brands:github',
+  LinkedIn: 'fa6-brands:linkedin',
+  Email: 'fa6-solid:envelope',
+  RSS: 'fa6-solid:rss',
 }
 
 const getSocialLink = ({ href, label }: SocialLink) => ({
   href: label === 'Email' ? `mailto:${href}` : href,
   ariaLabel: label,
   iconName:
-    iconMap[label as keyof typeof iconMap] || 'lucide:message-circle-question',
+    icons[label as keyof typeof icons] || 'lucide:message-circle-question',
 })
 ---
 
-<ul class={cn('not-prose flex flex-wrap gap-2', className)} role="list">
+<ul class={cn('flex flex-wrap gap-2', className)} role="list">
   {
     links.map((link) => {
       const { href, ariaLabel, iconName } = getSocialLink(link)
@@ -41,7 +40,7 @@ const getSocialLink = ({ href, label }: SocialLink) => ({
             title={ariaLabel}
             class={buttonVariants({ variant: 'outline', size: 'icon' })}
           >
-            <Icon name={iconName} class="size-4" />
+            <Icon name={iconName} class="h-4 w-4" />
           </Link>
         </li>
       )

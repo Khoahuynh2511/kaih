@@ -6,7 +6,7 @@ import Calendar, {
   type Props as ActivityCalendarProps,
 } from 'react-activity-calendar'
 
-// Adopted from https://github.com/grubersjoe/react-github-calendar
+// Adopted from https://github.com/KhoaHuynh2511/react-github-calendar
 // Copyright (c) 2019 Jonathan Gruber, MIT License
 
 interface Props extends Omit<ActivityCalendarProps, 'data' | 'theme'> {
