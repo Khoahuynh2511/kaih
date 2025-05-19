@@ -116,39 +116,21 @@ const projects = [
 </Layout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const filterLinks = document.querySelectorAll('.flex.flex-wrap.gap-2.mb-8 a');
-    const projectItems = document.querySelectorAll('.project-item');
-    
-    filterLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Thay đổi trạng thái active
-        filterLinks.forEach(l => l.classList.remove('bg-primary', 'text-primary-foreground'));
-        filterLinks.forEach(l => l.classList.add('bg-muted', 'text-muted-foreground'));
-        link.classList.remove('bg-muted', 'text-muted-foreground');
-        link.classList.add('bg-primary', 'text-primary-foreground');
-        
-        const category = link.textContent?.trim();
-        
-        if (category === 'All') {
-          // Hiển thị tất cả dự án
-          projectItems.forEach(item => {
-            item.style.display = 'block';
-          });
+  function filterProjects(category: string) {
+    const items = document.querySelectorAll('.project-item');
+    items.forEach((item) => {
+      if (item instanceof HTMLElement) {
+        if (category === 'all') {
+          item.style.display = 'block';
         } else {
-          // Lọc dự án theo danh mục
-          projectItems.forEach(item => {
-            const itemCategory = item.getAttribute('data-category');
-            if (itemCategory === category) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
+          const tags = item.getAttribute('data-tags')?.split(',') || [];
+          if (tags.includes(category)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
         }
-      });
+      }
     });
-  });
+  }
 </script> 
