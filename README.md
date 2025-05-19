@@ -1,6 +1,6 @@
 
 
-[kaih.dev](https://kaih.dev) là website portfolio cá nhân của tôi—được xây dựng bằng [Astro](https://astro.build/), [Tailwind](https://tailwindcss.com/), và [shadcn/ui](https://ui.shadcn.com/).
+[kaih.vercel.app](https://kaih.vercel.app) là website portfolio cá nhân của tôi—được xây dựng bằng [Astro](https://astro.build/), [Tailwind](https://tailwindcss.com/), và [shadcn/ui](https://ui.shadcn.com/).
 
 </div>
 
