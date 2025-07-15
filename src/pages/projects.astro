@@ -1,44 +1,147 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Container from '../components/Container.astro'
-import ProjectDetail from '../components/ProjectDetail.astro'
-import ProjectFilter from '../components/ProjectFilter.astro'
+import ProjectPagination from '../components/ProjectPagination.tsx'
 
-const categories = ['All', 'AI/ML', 'Data Science', 'Web Development', 'Research']
-const activeCategory = 'All'
-
-// Định nghĩa dự án với category
+// Định nghĩa dự án với category - sắp xếp theo ngày mới nhất
 const projects = [
   {
-    title: "Classify Horses and Cows | EfficientNetB7 DL Network",
-    date: "June 2024",
-    description: "An image classification project using EfficientNetB7 deep learning network to accurately classify images of horses and cows.",
-    technologies: ["Python", "TensorFlow", "EfficientNetB7", "Computer Vision", "Jupyter Notebook"],
-    projectUrl: "https://drive.google.com/drive/folders/1X-xfm92FVwLajgr-c5sSBW8DFWmbUtNQ?usp=sharing",
+    title: "Color Visualizer",
+    date: "2025-07-01",
+    description: "An online tool that allows users to input hex, RGB, or RGBA color codes and instantly visualize the corresponding color. Useful for developers and designers to preview and choose colors for their projects.",
+    technologies: ["React", "Vercel", "JavaScript", "CSS"],
+    projectUrl: "https://color-ten-bice.vercel.app/",
     achievements: [
-      "Built and deployed an EfficientNetB7 model to classify cattle and horses with ≃97% accuracy.",
-      "Optimized data preprocessing, training, and evaluation for performance."
+      "Provides instant color visualization from various color code formats.",
+      "Offers a simple and intuitive user interface for color selection.",
+      "Helps streamline the workflow for web developers and UI/UX designers.",
+      "Deployed as a fast and accessible web application on Vercel."
     ],
-    imageUrl: "/horses-cows.jpg",
-    category: "AI/ML"
+    imageUrl: "/colorpalette.png",
+    category: "Web Development"
   },
   {
-    title: "Reinforcement Learning for Flappy Bird",
-    date: "June 2024",
-    description: "Implementation of reinforcement learning techniques to train an AI agent to play Flappy Bird game autonomously.",
-    technologies: ["Python", "DQN", "Double DQN", "Reinforcement Learning", "OpenAI Gym", "Jupyter Notebook"],
-    projectUrl: "https://drive.google.com/drive/folders/1BfzibofyYlzwfiRyRD4ZkAwOXECOwnkt?usp=drive_link",
+    title: "GitDit - Git Repository Viewer",
+    date: "2025-07-01",
+    description: "A web-based tool to easily view and analyze Git repositories.",
+    technologies: ["React", "Vercel", "GitHub API", "JavaScript", "CSS"],
+    projectUrl: "https://gitdit.vercel.app/",
     achievements: [
-      "Implemented Q-Learning and Double Q-Learning to train an AI agent for Flappy Bird in OpenAI Gym.",
-      "Designed reward structures, evaluated performance, and documented findings.",
-      "Strengthened collaboration and technical communication skills."
+      "Watch the most starred repositories on GitHub, search for repositories by name, and view detailed information about each repository."
     ],
-    imageUrl: "/flappy-bird.jpg",
-    category: "AI/ML"
+    imageUrl: "/gitdit.png",
+    category: "Web Development"
+  },
+  {
+    title: "Scientific Paper Search Tool",
+    date: "2025-07-01",
+    description: "A free tool for searching scientific papers across multiple academic databases such as ArXiv, CrossRef, Semantic Scholar, OpenAlex, PubMed, and DOAJ.",
+    technologies: ["Web Application", "React", "Vercel", "API Integration"],
+    projectUrl: "https://papersearchtool.vercel.app/",
+    achievements: [
+      "Integrated search from multiple major academic data sources.",
+      "Provides advanced filters by publication year, author, and category.",
+      "Allows users to export search results to CSV, JSON, or print directly.",
+      "Includes a bookmarking feature to save papers for later reference."
+    ],
+    imageUrl: "/papersearch.png",
+    category: "Web Development"
+  },
+  {
+    title: "Traffic Coach | Next.js, TypeScript, Tailwind CSS",
+    date: "2025-06-01",
+    description: "Built a Vietnamese traffic-law lookup and comparison tool that lets users search violations and instantly view penalties under both Decree 100/2019 and the newer Decree 168/2024.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    projectUrl: "https://traffic-coach.vercel.app/",
+    achievements: [
+      "Implemented fuzzy-search and vehicle-type filters for rapid retrieval of relevant violation rules and fines.",
+      "Designed side-by-side comparison UI so users can clearly see differences in penalties between the two decrees."
+    ],
+    imageUrl: "/traffic.jpg",
+    category: "Web Development"
+  },
+  {
+    title: "Infinite World | Three.js, WebGL, Procedural Generation",
+    date: "2025-06-01",
+    description: "Created a browser-based, infinitely autogenerated 3-D world rendered with WebGL and Three.js, allowing seamless first-person exploration.",
+    technologies: ["WebGL", "Three.js", "JavaScript", "Vite", "Vercel"],
+    projectUrl: "https://open-ochre-seven.vercel.app/",
+    achievements: [
+      "Engineered chunk-streamed terrain with level-of-detail (LOD) to keep GPU/CPU usage low while the world grows without bounds.",
+      "Implemented intuitive WASD navigation, pointer-lock camera, and quick-toggle features such as fullscreen (F) and debug view (B)."
+    ],
+    imageUrl: "/open.jpg",
+    category: "Web Development"
+  },
+  {
+    title: "Sonata | Next.js, TypeScript, PostreSQL, Recommendation Algorithm, Tailwind CSS",
+    date: "2025-06-01",
+    description: "Developed a classical music website.",
+    technologies: ["React Web App", "Recommendation Algorithm", "Vercel"],
+    projectUrl: "https://sonata.io.vn/",
+    achievements: [
+      "Implemented a clean, responsive UI with Tailwind CSS, enabling intuitive hearing music experience across devices.",
+      "Integrated full music website logic."
+    ],
+    imageUrl: "/sonata.jpg",
+    category: "Web Development"
+  },
+  {
+    title: "F1 Dashboard | Next.js, TypeScript, Ergast API, Vite, Tailwind CSS",
+    date: "2025-06-01",
+    description: "Built a dynamic Formula 1 dashboard that streams live driver & team data via the Ergast API, pairing it with historical statistics for deeper race insights.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/ui", "Ergast API", "Vercel"],
+    projectUrl: "https://f1-dashboard-web.vercel.app/",
+    achievements: [
+      "Implemented real-time telemetry and standings with modular TypeScript data-fetching layers.",
+      "Designed responsive dark/light UI using Tailwind CSS and Shadcn/ui for consistent cross-device experience.",
+      "Laid foundation for advanced interactive graphs and full mobile responsiveness in upcoming releases."
+    ],
+    imageUrl: "/f1.jpg",
+    category: "Web Development"
+  },
+  {
+    title: "ChessGame | Next.js, TypeScript, chess.js, Tailwind CSS",
+    date: "2025-05-01",
+    description: "Developed an interactive chess game using Next.js and TypeScript, with real-time legal move validation via chess.js.",
+    technologies: ["React Web App", "Chess.js", "Vercel"],
+    projectUrl: "https://chessgame-chi.vercel.app/",
+    achievements: [
+      "Implemented a clean, responsive UI with Tailwind CSS, enabling intuitive gameplay across devices.",
+      "Integrated full game logic: move history, player turns, check/checkmate detection."
+    ],
+    imageUrl: "/chess.jpg",
+    category: "Web Development"
+  },
+  {
+    title: "QuickResume | React Web App, JSON Resume, Netlify",
+    date: "2025-05-01",
+    description: "Designed and deployed a dynamic resume builder using React with JSON Resume schema integration for real-time content updates.",
+    technologies: ["React Web App", "JSON Resume", "Netlify"],
+    projectUrl: "https://quickresumeweb.netlify.app/",
+    achievements: [
+      "Enabled export to PDF and theme switching for personalized resume presentation.",
+      "Implemented intuitive UI/UX for streamlined user experience, supporting mobile responsiveness."
+    ],
+    imageUrl: "/resume.jpg",
+    category: "Web Development"
+  },
+  {
+    title: "RecipeHub | React Web App, TheMealDB & CocktailDB APIs, Netlify",
+    date: "2025-04-01",
+    description: "Developed a responsive recipe browsing web application using React, styled-components, and TheMealDB + CocktailDB APIs",
+    technologies: ["React Web App", "TheMealDB & CocktailDB APIs", "Netlify"],
+    projectUrl: "https://recipeshubweb.netlify.app/",
+    achievements: [
+      "Implemented real-time search, category filters, and dynamic routing for detailed recipe views.",
+      "Deployed on Netlify with optimized performance, ensuring smooth user experience across devices."
+    ],
+    imageUrl: "/recipe.jpg",
+    category: "Web Development"
   },
   {
     title: "Video Retrieval from Text | CLIP, FAISS",
-    date: "November 2024",
+    date: "2024-11-01",
     description: "A system that enables retrieving videos based on text descriptions using CLIP embeddings and FAISS for efficient similarity search.",
     technologies: ["Python", "CLIP", "FAISS", "Streamlit", "Deep Learning", "Natural Language Processing"],
     projectUrl: "https://drive.google.com/drive/folders/1ZyYjAKhvJfzq0GwFXTETDLycvO3wZtA1?usp=drive_link",
@@ -52,7 +155,7 @@ const projects = [
   },
   {
     title: "Mental Health Chatbot | Transformers, Langchain",
-    date: "November 2024",
+    date: "2024-11-01",
     description: "A chatbot designed to provide mental health support using advanced NLP techniques and language models.",
     technologies: ["Python", "Transformers", "Langchain", "Streamlit", "NLP", "AI"],
     projectUrl: "https://drive.google.com/drive/folders/18JLhpH8sFnZmD6Yf06nxKCNGBZDKK8q5?usp=drive_link",
@@ -66,7 +169,7 @@ const projects = [
   },
   {
     title: "Research of CEM-RL | Reinforcement Learning",
-    date: "November 2024",
+    date: "2024-11-01",
     description: "Research on Cross-Entropy Method for Reinforcement Learning (CEM-RL), a hybrid approach combining evolutionary and gradient-based methods.",
     technologies: ["Python", "Reinforcement Learning", "CEM", "PyTorch", "Research"],
     projectUrl: "https://drive.google.com/drive/folders/1NvmmCrwwxHBtfZoX4UMCuiMQAw4KyEOZ?usp=drive_link",
@@ -78,140 +181,32 @@ const projects = [
     category: "Research"
   },
   {
-    title: "RecipeHub | React Web App, TheMealDB & CocktailDB APIs, Netlify",
-    date: "April 2025",
-    description: "Developed a responsive recipe browsing web application using React, styled-components, and TheMealDB + CocktailDB APIs",
-    technologies: [" React Web App", "TheMealDB & CocktailDB APIs", "Netlify"],
-    projectUrl: "https://recipeshubweb.netlify.app/",
+    title: "Classify Horses and Cows | EfficientNetB7 DL Network",
+    date: "2024-06-01",
+    description: "An image classification project using EfficientNetB7 deep learning network to accurately classify images of horses and cows.",
+    technologies: ["Python", "TensorFlow", "EfficientNetB7", "Computer Vision", "Jupyter Notebook"],
+    projectUrl: "https://drive.google.com/drive/folders/1X-xfm92FVwLajgr-c5sSBW8DFWmbUtNQ?usp=sharing",
     achievements: [
-      "Implemented real-time search, category filters, and dynamic routing for detailed recipe views.",
-      "Deployed on Netlify with optimized performance, ensuring smooth user experience across devices."
+      "Built and deployed an EfficientNetB7 model to classify cattle and horses with ≃97% accuracy.",
+      "Optimized data preprocessing, training, and evaluation for performance."
     ],
-    imageUrl: "/recipe.jpg",
-    category: "Web Development"
+    imageUrl: "/horses-cows.jpg",
+    category: "AI/ML"
   },
   {
-    title: "QuickResume | React Web App, JSON Resume, Netlify",
-    date: "May 2025",
-    description: "Designed and deployed a dynamic resume builder using React with JSON Resume schema integration for real-time content updates.",
-    technologies: [" React Web App", "JSON Resume", "Netlify"],
-    projectUrl: "https://quickresumeweb.netlify.app/",
+    title: "Reinforcement Learning for Flappy Bird",
+    date: "2024-06-01",
+    description: "Implementation of reinforcement learning techniques to train an AI agent to play Flappy Bird game autonomously.",
+    technologies: ["Python", "DQN", "Double DQN", "Reinforcement Learning", "OpenAI Gym", "Jupyter Notebook"],
+    projectUrl: "https://drive.google.com/drive/folders/1BfzibofyYlzwfiRyRD4ZkAwOXECOwnkt?usp=drive_link",
     achievements: [
-      "Enabled export to PDF and theme switching for personalized resume presentation.",
-      "Implemented intuitive UI/UX for streamlined user experience, supporting mobile responsiveness."
+      "Implemented Q-Learning and Double Q-Learning to train an AI agent for Flappy Bird in OpenAI Gym.",
+      "Designed reward structures, evaluated performance, and documented findings.",
+      "Strengthened collaboration and technical communication skills."
     ],
-    imageUrl: "/resume.jpg",
-    category: "Web Development"
-  },
-  {
-    title: "ChessGame | Next.js, TypeScript, chess.js, Tailwind CSS",
-    date: "May 2025",
-    description: "Developed an interactive chess game using Next.js and TypeScript, with real-time legal move validation via chess.js.",
-    technologies: [" React Web App", "Chess.js", "Vercel"],
-    projectUrl: "https://chessgame-chi.vercel.app/",
-    achievements: [
-      "Implemented a clean, responsive UI with Tailwind CSS, enabling intuitive gameplay across devices.",
-      "Integrated full game logic: move history, player turns, check/checkmate detection."
-    ],
-    imageUrl: "/chess.jpg",
-    category: "Web Development"
-  },
-  {
-  title: "F1 Dashboard | Next.js, TypeScript, Ergast API, Vite, Tailwind CSS",
-  date: "June 2025",
-  description: "Built a dynamic Formula 1 dashboard that streams live driver & team data via the Ergast API, pairing it with historical statistics for deeper race insights.",
-  technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/ui", "Ergast API", "Vercel"],
-  projectUrl: "https://f1-dashboard-web.vercel.app/",
-  achievements: [
-    "Implemented real-time telemetry and standings with modular TypeScript data-fetching layers.",
-    "Designed responsive dark/light UI using Tailwind CSS and Shadcn/ui for consistent cross-device experience.",
-    "Laid foundation for advanced interactive graphs and full mobile responsiveness in upcoming releases."
-  ],
-  imageUrl: "/f1.jpg",
-  category: "Web Development"
-},
-  {
-    title: "Sonata | Next.js, TypeScript, PostreSQL, Recommendation Algorithm, Tailwind CSS",
-    date: "June 2025",
-    description: "Developed a classical music website.",
-    technologies: [" React Web App", "Recommendation Algorithm", "Vercel"],
-    projectUrl: "https://sonata.io.vn/",
-    achievements: [
-      "Implemented a clean, responsive UI with Tailwind CSS, enabling intuitive hearing music experience across devices.",
-      "Integrated full music website logic."
-    ],
-    imageUrl: "/sonata.jpg",
-    category: "Web Development"
-  },
-  {
-  "title": "Infinite World | Three.js, WebGL, Procedural Generation",
-  "date": "June 2025",
-  "description": "Created a browser-based, infinitely autogenerated 3-D world rendered with WebGL and Three.js, allowing seamless first-person exploration.",
-  "technologies": ["WebGL", "Three.js", "JavaScript", "Vite", "Vercel"],
-  "projectUrl": "https://open-ochre-seven.vercel.app/",
-  "achievements": [
-    "Engineered chunk-streamed terrain with level-of-detail (LOD) to keep GPU/CPU usage low while the world grows without bounds.",
-    "Implemented intuitive WASD navigation, pointer-lock camera, and quick-toggle features such as fullscreen (F) and debug view (B)."
-  ],
-  "imageUrl": "/open.jpg",
-  "category": "Web Development"
-},
-{
-  "title": "Traffic Coach | Next.js, TypeScript, Tailwind CSS",
-  "date": "June 2025",
-  "description": "Built a Vietnamese traffic-law lookup and comparison tool that lets users search violations and instantly view penalties under both Decree 100/2019 and the newer Decree 168/2024.",
-  "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-  "projectUrl": "https://traffic-coach.vercel.app/",
-  "achievements": [
-    "Implemented fuzzy-search and vehicle-type filters for rapid retrieval of relevant violation rules and fines.",
-    "Designed side-by-side comparison UI so users can clearly see differences in penalties between the two decrees."
-  ],
-  "imageUrl": "/traffic.jpg",
-  "category": "Web Development"
-},
-{
-   "title": "Scientific Paper Search Tool",
-   "date": "July 2025",
-   "description": "A free tool for searching scientific papers across multiple academic databases such as ArXiv, CrossRef, Semantic Scholar, OpenAlex, PubMed, and DOAJ.",
-   "technologies": ["Web Application", "React", "Vercel", "API Integration"],
-   "projectUrl": "https://papersearchtool.vercel.app/",
-   "achievements": [
-     "Integrated search from multiple major academic data sources.",
-     "Provides advanced filters by publication year, author, and category.",
-     "Allows users to export search results to CSV, JSON, or print directly.",
-     "Includes a bookmarking feature to save papers for later reference."
-   ],
-   "imageUrl": "/papersearch.png",
-   "category": "Web Development"
- },
- {
-   "title": "GitDit - Git Repository Viewer",
-   "date": "July 2025",
-   "description": "A web-based tool to easily view and analyze Git repositories.",
-   "technologies": ["React", "Vercel", "GitHub API", "JavaScript", "CSS"],
-   "projectUrl": "https://gitdit.vercel.app/",
-   "achievements": [
-     "Watch the most starred repositories on GitHub, search for repositories by name, and view detailed information about each repository."
-   ],
-   "imageUrl": "/gitdit.png",
-   "category": "Web Development"
- },
- {
-   "title": "Color Visualizer",
-   "date": "July 2025",
-   "description": "An online tool that allows users to input hex, RGB, or RGBA color codes and instantly visualize the corresponding color. Useful for developers and designers to preview and choose colors for their projects.",
-   "technologies": ["React", "Vercel", "JavaScript", "CSS"],
-   "projectUrl": "https://color-ten-bice.vercel.app/",
-   "achievements": [
-     "Provides instant color visualization from various color code formats.",
-     "Offers a simple and intuitive user interface for color selection.",
-     "Helps streamline the workflow for web developers and UI/UX designers.",
-     "Deployed as a fast and accessible web application on Vercel."
-   ],
-   "imageUrl": "/colorpalette.png",
-   "category": "Web Development"
- }
-
+    imageUrl: "/flappy-bird.jpg",
+    category: "AI/ML"
+  }
 ]
 ---
 
@@ -229,43 +224,53 @@ const projects = [
         </p>
       </div>
       
-      <ProjectFilter categories={categories} activeCategory={activeCategory} />
-      
-      <div class="space-y-8" id="projects-container">
-        {projects.map(project => (
-          <div id={project.category.toLowerCase().replace(/\s+/g, '-')} class="scroll-mt-24 project-item" data-category={project.category}>
-            <ProjectDetail
-              title={project.title}
-              date={project.date}
-              description={project.description}
-              technologies={project.technologies}
-              projectUrl={project.projectUrl}
-              achievements={project.achievements}
-              imageUrl={project.imageUrl}
-            />
-          </div>
-        ))}
-      </div>
+      <!-- Component phân trang với React -->
+      <ProjectPagination 
+        client:load
+        projects={projects}
+        itemsPerPage={5}
+      />
     </div>
   </Container>
 </Layout>
 
-<script>
-  function filterProjects(category: string) {
-    const items = document.querySelectorAll('.project-item');
-    items.forEach((item) => {
-      if (item instanceof HTMLElement) {
-        if (category === 'all') {
-          item.style.display = 'block';
-        } else {
-          const tags = item.getAttribute('data-tags')?.split(',') || [];
-          if (tags.includes(category)) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        }
-      }
-    });
+<style>
+  /* Thêm styles cho pagination buttons */
+  .bg-primary {
+    background-color: hsl(var(--primary));
   }
-</script> 
+  
+  .text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+  }
+  
+  .hover\:bg-muted:hover {
+    background-color: hsl(var(--muted));
+  }
+  
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .bg-secondary {
+    background-color: hsl(var(--secondary));
+  }
+  
+  .text-secondary-foreground {
+    color: hsl(var(--secondary-foreground));
+  }
+  
+  .border {
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .focus\:ring-2:focus {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  }
+  
+  .focus\:ring-primary:focus {
+    --tw-ring-color: hsl(var(--primary));
+  }
+</style> 
