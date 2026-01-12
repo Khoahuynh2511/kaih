@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Container from '../components/Container.astro'
+import GitHubStats from '../components/stats/GitHubStats'
+import GithubCalendar from '../components/bento/GithubCalendar'
+import CodingActivity from '../components/stats/CodingActivity'
+import WakatimeGraph from '../components/bento/WakatimeGraph'
+import { Icon } from 'astro-icon/components'
+
+const GITHUB_USERNAME = 'Khoahuynh2511'
+---
+
+<Layout
+  title="Stats | Huynh Dang Khoa"
+  description="Real-time coding statistics and activity dashboard"
+>
+  <Container class="py-10 max-w-5xl">
+    <div class="space-y-12">
+      <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold mb-4">Coding Stats</h1>
+        <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Real-time statistics about my coding activity, GitHub contributions, and programming languages.
+        </p>
+      </div>
+
+      <section class="space-y-6">
+        <div class="flex items-center gap-2">
+          <Icon name="lucide:github" class="h-6 w-6 text-primary" />
+          <h2 class="text-2xl font-bold">GitHub Activity</h2>
+        </div>
+        
+        <GitHubStats client:load username={GITHUB_USERNAME} />
+
+        <div class="bg-card border rounded-xl p-6 overflow-hidden">
+          <h3 class="text-lg font-semibold mb-4">Contribution Calendar</h3>
+          <div class="flex justify-center">
+            <GithubCalendar client:load username={GITHUB_USERNAME} />
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <div class="flex items-center gap-2">
+          <Icon name="lucide:clock" class="h-6 w-6 text-primary" />
+          <h2 class="text-2xl font-bold">Coding Activity</h2>
+        </div>
+        
+        <CodingActivity client:load />
+      </section>
+
+      <section class="space-y-6">
+        <div class="flex items-center gap-2">
+          <Icon name="lucide:code" class="h-6 w-6 text-primary" />
+          <h2 class="text-2xl font-bold">Languages Overview</h2>
+        </div>
+        
+        <div class="bg-card border rounded-xl p-6 h-[400px]">
+          <WakatimeGraph client:load />
+        </div>
+      </section>
+
+      <section class="bg-card border rounded-xl p-8 text-center">
+        <Icon name="lucide:info" class="h-8 w-8 text-primary mx-auto mb-4" />
+        <h3 class="text-xl font-semibold mb-2">About These Stats</h3>
+        <p class="text-muted-foreground max-w-2xl mx-auto">
+          These statistics are fetched in real-time from GitHub API and Wakatime. 
+          The coding activity is tracked automatically while I work in my IDE.
+          Data updates every time you refresh the page.
+        </p>
+      </section>
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  .bg-primary {
+    background-color: hsl(var(--primary));
+  }
+  
+  .text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+  }
+</style>

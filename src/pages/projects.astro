@@ -5,6 +5,77 @@ import ProjectPagination from '../components/ProjectPagination.tsx'
 
 // Định nghĩa dự án với category - sắp xếp theo ngày mới nhất
 const projects = [
+{
+  title: "CineSphere - Intelligent Movie Streaming",
+  date: "2025-09-20",
+  description: "A next-generation movie streaming platform featuring a hybrid backend architecture. It combines the robustness of Java for core business logic with a Python-based AI engine to deliver personalized content recommendations in real-time.",
+  technologies: [
+    "Next.js",
+    "TypeScript",
+    "Java Spring Boot",
+    "Python FastAPI",
+    "TensorFlow",
+    "PostgreSQL",
+    "Redis"
+  ],
+  projectUrl: "https://github.com/Khoahuynh2511/SE334.P21---MovieWeb",
+  achievements: [
+    "Architected a hybrid microservices ecosystem using Java Spring Boot for secure user management and billing, seamlessly integrated with Python FastAPI for AI services.",
+    "Engineered a collaborative filtering recommendation engine using Python and TensorFlow to personalize movie suggestions based on user viewing history.",
+    "Built a high-performance, SEO-optimized frontend interface using Next.js and TypeScript, ensuring fast load times and type safety.",
+    "Implemented efficient data caching and session management using Redis to handle high-concurrency traffic during peak streaming hours."
+  ],
+  imageUrl: "/cinesphere-dashboard.png",
+  category: "Full Stack & Machine Learning"
+},
+{
+  title: "SneakerWorld - Mobile E-commerce App",
+  date: "2025-08-08",
+  description: "A comprehensive full-stack mobile application for purchasing footwear, developed natively using Android Studio. It leverages the full Firebase ecosystem for real-time database management, secure authentication, and cloud storage.",
+  technologies: [
+    "Android Studio",
+    "Kotlin",
+    "Firebase Realtime Database",
+    "Firebase Authentication",
+    "Firebase Storage",
+    "Cloud Messaging",
+    "Material Design"
+  ],
+  projectUrl: "sneaker-app-showcase",
+  achievements: [
+    "Implemented a secure user authentication system supporting Email and Google Sign-In via Firebase Auth.",
+    "Developed a dynamic product catalog with real-time inventory synchronization using Firebase Realtime Database.",
+    "Integrated a full shopping cart workflow including order placement, history tracking, and push notifications for status updates.",
+    "Designed a modern, responsive mobile UI with smooth transitions and image caching using Material Design principles."
+  ],
+  imageUrl: "/sneaker-app-showcase.png",
+  category: "Mobile Application Development"
+},
+{
+  title: "UITravel - AI Tour Booking System",
+  date: "2025-12-30",
+  description: "A full-stack intelligent tour booking platform combining a modern Angular 19 SPA with a FastAPI backend. It leverages AI Agents (LangGraph) for semantic search and 24/7 customer support, featuring real-time updates and secure payment integration.",
+  technologies: [
+    "Angular 19",
+    "FastAPI",
+    "LangGraph",
+    "Supabase",
+    "Docker",
+    "TypeScript",
+    "Python",
+    "PrimeNG",
+    "TailwindCSS"
+  ],
+  projectUrl: "http://uitravel.click/home",
+  achievements: [
+    "Engineered a semantic search engine and context-aware AI chatbot using LangGraph, OpenAI, and Vector Databases (Qdrant) for personalized travel recommendations.",
+    "Implemented a secure multi-step booking flow with OTP verification via SendGrid and integrated VNPay gateway for real-time transactions.",
+    "Developed a responsive UI with Angular 19 and TailwindCSS, featuring real-time data streaming (SSE) for chat and push notifications.",
+    "Designed a scalable microservices-ready architecture using Docker, separating the Client, API Gateway, and AI Agent layers."
+  ],
+  imageUrl: "/uitravel-dashboard.png",
+  category: "Full Stack & AI Development"
+},
   {
     title: "Color Visualizer",
     date: "2025-07-15",
@@ -78,7 +149,7 @@ const projects = [
     date: "2025-06-07",
     description: "Developed a classical music website.",
     technologies: ["React Web App", "Recommendation Algorithm", "Vercel"],
-    projectUrl: "https://sonata.io.vn/",
+    projectUrl: "https://sonata-classical-music.vercel.app/",
     achievements: [
       "Implemented a clean, responsive UI with Tailwind CSS, enabling intuitive hearing music experience across devices.",
       "Integrated full music website logic."

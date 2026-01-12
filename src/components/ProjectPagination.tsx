@@ -199,7 +199,7 @@ const ProjectPagination: React.FC<ProjectPaginationProps> = ({
                       <span className="text-sm text-muted-foreground">{project.date}</span>
                     </div>
                     
-                    <p className="text-muted-foreground mb-4">{project.description}</p>
+                    <p className="text-muted-foreground mb-4 text-justify">{project.description}</p>
                     
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.map((tech, techIndex) => (
@@ -214,7 +214,7 @@ const ProjectPagination: React.FC<ProjectPaginationProps> = ({
                     
                     <ul className="list-disc list-inside text-sm text-muted-foreground mb-4 space-y-1">
                       {project.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex}>{achievement}</li>
+                        <li key={achIndex} className="text-justify">{achievement}</li>
                       ))}
                     </ul>
                     

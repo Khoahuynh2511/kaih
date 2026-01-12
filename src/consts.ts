@@ -27,13 +27,15 @@ export const NAV_LINKS: Link[] = [
   { href: '/blog', label: 'blog' },
   { href: '/about', label: 'about me' },
   { href: '/projects', label: 'projects' },
+  { href: '/stats', label: 'stats' },
+  { href: '/uses', label: 'uses' },
   // { href: '/authors', label: 'authors' },
   // { href: '/tags', label: 'tags' },
 ]
 
 export const SOCIAL_LINKS: Link[] = [
-  { href: 'https://github.com/KhoaHuynh2511', label: 'GitHub' },
-  { href: 'https://www.linkedin.com/in/huỳnh-đăng-khoa-846786218/', label: 'LinkedIn' },
+  { href: 'https://github.com/Khoahuynh2511', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/huynh-dang-khoa-846786218/', label: 'LinkedIn' },
   { href: 'dangkhoahuynh2511@gmail.com', label: 'Email' },
   { href: '/rss.xml', label: 'RSS' },
 ]

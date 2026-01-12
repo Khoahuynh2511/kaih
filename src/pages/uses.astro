@@ -1,0 +1,386 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Container from '../components/Container.astro'
+import { Icon } from 'astro-icon/components'
+
+const categories = [
+  {
+    title: 'Development',
+    icon: 'lucide:code',
+    items: [
+      {
+        name: 'Visual Studio Code',
+        description: 'My primary code editor. Fast, extensible, and has great TypeScript support.',
+        link: 'https://code.visualstudio.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg'
+      },
+      {
+        name: 'Cursor',
+        description: 'AI-powered code editor built on VS Code. Great for pair programming with AI.',
+        link: 'https://cursor.sh/',
+        logo: 'https://www.cursor.com/favicon.ico'
+      },
+      {
+        name: 'Git',
+        description: 'Version control for all my projects.',
+        link: 'https://git-scm.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg'
+      },
+      {
+        name: 'GitHub',
+        description: 'Where I host all my code repositories.',
+        link: 'https://github.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
+      },
+      {
+        name: 'Docker',
+        description: 'For containerizing applications and consistent development environments.',
+        link: 'https://www.docker.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg'
+      },
+      {
+        name: 'Postman',
+        description: 'API testing and documentation tool.',
+        link: 'https://www.postman.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg'
+      }
+    ]
+  },
+  {
+    title: 'Programming Languages',
+    icon: 'lucide:code-2',
+    items: [
+      {
+        name: 'Python',
+        description: 'Primary language for AI/ML projects, data science, and automation.',
+        link: 'https://www.python.org/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg'
+      },
+      {
+        name: 'TypeScript',
+        description: 'Go-to language for web development. Type safety is essential.',
+        link: 'https://www.typescriptlang.org/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'
+      },
+      {
+        name: 'JavaScript',
+        description: 'The backbone of web development and Node.js applications.',
+        link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
+      },
+      {
+        name: 'C++',
+        description: 'For competitive programming, system-level development, and performance-critical applications.',
+        link: 'https://isocpp.org/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg'
+      },
+      {
+        name: 'C#',
+        description: 'For .NET applications, Unity game development, and enterprise software.',
+        link: 'https://docs.microsoft.com/en-us/dotnet/csharp/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg'
+      },
+      {
+        name: 'Java',
+        description: 'For Android development, enterprise applications, and backend services.',
+        link: 'https://www.java.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
+      },
+      {
+        name: 'C',
+        description: 'Foundation of system programming and understanding low-level concepts.',
+        link: 'https://en.wikipedia.org/wiki/C_(programming_language)',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg'
+      },
+      {
+        name: 'SQL',
+        description: 'Database querying and data manipulation across various RDBMS.',
+        link: 'https://www.mysql.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg'
+      }
+    ]
+  },
+  {
+    title: 'Frameworks & Libraries',
+    icon: 'lucide:layers',
+    items: [
+      {
+        name: 'React',
+        description: 'Component-based UI library for building interactive interfaces.',
+        link: 'https://react.dev/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+      },
+      {
+        name: 'Next.js',
+        description: 'Full-stack React framework with SSR, SSG, and API routes.',
+        link: 'https://nextjs.org/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg'
+      },
+      {
+        name: 'Astro',
+        description: 'Content-focused framework for fast, lightweight websites.',
+        link: 'https://astro.build/',
+        logo: 'https://astro.build/assets/press/astro-icon-light-gradient.svg'
+      },
+      {
+        name: 'Tailwind CSS',
+        description: 'Utility-first CSS framework for rapid UI development.',
+        link: 'https://tailwindcss.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg'
+      },
+      {
+        name: 'Node.js',
+        description: 'JavaScript runtime for server-side applications.',
+        link: 'https://nodejs.org/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg'
+      },
+      {
+        name: 'Express.js',
+        description: 'Minimal web framework for Node.js backend development.',
+        link: 'https://expressjs.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg'
+      },
+      {
+        name: 'PyTorch',
+        description: 'Deep learning framework for AI/ML research and production.',
+        link: 'https://pytorch.org/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg'
+      },
+      {
+        name: 'TensorFlow',
+        description: 'End-to-end ML platform for training and deploying models.',
+        link: 'https://www.tensorflow.org/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg'
+      }
+    ]
+  },
+  {
+    title: 'AI & Data Tools',
+    icon: 'lucide:brain',
+    items: [
+      {
+        name: 'Jupyter Notebook',
+        description: 'Interactive computing environment for data analysis and ML experiments.',
+        link: 'https://jupyter.org/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg'
+      },
+      {
+        name: 'Hugging Face',
+        description: 'For pre-trained models and NLP tasks.',
+        link: 'https://huggingface.co/',
+        logo: 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg'
+      },
+      {
+        name: 'LangChain',
+        description: 'Building applications with large language models.',
+        link: 'https://langchain.com/',
+        logo: 'https://python.langchain.com/img/brand/wordmark.png'
+      },
+      {
+        name: 'OpenAI API',
+        description: 'GPT models for various AI-powered features.',
+        link: 'https://openai.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openal/openal-original.svg'
+      },
+      {
+        name: 'Pandas / NumPy',
+        description: 'Essential Python libraries for data manipulation.',
+        link: 'https://pandas.pydata.org/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg'
+      }
+    ]
+  },
+  {
+    title: 'Database & Backend',
+    icon: 'lucide:database',
+    items: [
+      {
+        name: 'PostgreSQL',
+        description: 'Powerful, open source relational database.',
+        link: 'https://www.postgresql.org/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg'
+      },
+      {
+        name: 'MongoDB',
+        description: 'NoSQL database for flexible data storage.',
+        link: 'https://www.mongodb.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg'
+      },
+      {
+        name: 'Firebase',
+        description: 'For real-time database, authentication, and hosting.',
+        link: 'https://firebase.google.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg'
+      },
+      {
+        name: 'Supabase',
+        description: 'Open source Firebase alternative with PostgreSQL.',
+        link: 'https://supabase.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg'
+      },
+      {
+        name: 'Redis',
+        description: 'In-memory data store for caching.',
+        link: 'https://redis.io/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg'
+      }
+    ]
+  },
+  {
+    title: 'Deployment & Hosting',
+    icon: 'lucide:cloud',
+    items: [
+      {
+        name: 'Vercel',
+        description: 'Primary hosting platform for frontend projects.',
+        link: 'https://vercel.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg'
+      },
+      {
+        name: 'Netlify',
+        description: 'Alternative hosting for static sites.',
+        link: 'https://www.netlify.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg'
+      },
+      {
+        name: 'Railway',
+        description: 'For deploying backend services and databases.',
+        link: 'https://railway.app/',
+        logo: 'https://railway.app/brand/logo-light.svg'
+      },
+      {
+        name: 'Cloudflare',
+        description: 'CDN, DNS, and security for all my domains.',
+        link: 'https://www.cloudflare.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg'
+      }
+    ]
+  },
+  {
+    title: 'Productivity',
+    icon: 'lucide:zap',
+    items: [
+      {
+        name: 'Notion',
+        description: 'For notes, project management, and documentation.',
+        link: 'https://www.notion.so/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg'
+      },
+      {
+        name: 'Figma',
+        description: 'UI/UX design and prototyping.',
+        link: 'https://www.figma.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg'
+      },
+      {
+        name: 'Slack / Discord',
+        description: 'Team communication and community.',
+        link: 'https://discord.com/',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg'
+      },
+      {
+        name: 'Wakatime',
+        description: 'Tracking my coding activity and statistics.',
+        link: 'https://wakatime.com/',
+        logo: 'https://wakatime.com/static/img/wakatime-logo.svg'
+      }
+    ]
+  },
+  {
+    title: 'Hardware',
+    icon: 'lucide:laptop',
+    items: [
+      {
+        name: 'Acer Nitro 5 AN515-55',
+        description: 'My primary development machine. Intel i5, 16GB RAM, GTX 1650.',
+        link: '#',
+        logo: ''
+      },
+      {
+        name: 'External Monitor',
+        description: 'Dual monitor setup for better productivity.',
+        link: '#',
+        logo: ''
+      },
+      {
+        name: 'Mechanical Keyboard',
+        description: 'For comfortable long coding sessions.',
+        link: '#',
+        logo: ''
+      }
+    ]
+  }
+]
+---
+
+<Layout
+  title="Uses | Huynh Dang Khoa"
+  description="Tools, software, and hardware I use for development and daily work"
+>
+  <Container class="py-10 max-w-4xl">
+    <div class="space-y-12">
+      <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold mb-4">What I Use</h1>
+        <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+          A comprehensive list of tools, software, and hardware I use for development, 
+          data science, and daily productivity.
+        </p>
+      </div>
+
+      {categories.map((category) => (
+        <section class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="bg-primary/10 p-2 rounded-lg">
+              <Icon name={category.icon} class="h-5 w-5 text-primary" />
+            </div>
+            <h2 class="text-2xl font-bold">{category.title}</h2>
+          </div>
+          
+          <div class="grid gap-4">
+            {category.items.map((item) => (
+              <a 
+                href={item.link}
+                target={item.link !== '#' ? '_blank' : undefined}
+                rel={item.link !== '#' ? 'noopener noreferrer' : undefined}
+                class={`block bg-card border rounded-xl p-4 transition-all ${item.link !== '#' ? 'hover:shadow-md hover:border-primary/50' : ''}`}
+              >
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-muted flex items-center justify-center overflow-hidden">
+                    {item.logo ? (
+                      <img 
+                        src={item.logo} 
+                        alt={item.name}
+                        class="w-6 h-6 object-contain"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <Icon name="lucide:box" class="h-5 w-5 text-muted-foreground" />
+                    )}
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-start justify-between gap-2">
+                      <h3 class="font-semibold text-lg">{item.name}</h3>
+                      {item.link !== '#' && (
+                        <Icon name="lucide:external-link" class="h-4 w-4 text-muted-foreground flex-shrink-0 mt-1" />
+                      )}
+                    </div>
+                    <p class="text-muted-foreground text-sm mt-1">{item.description}</p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <section class="bg-card border rounded-xl p-8 text-center">
+        <Icon name="lucide:sparkles" class="h-8 w-8 text-primary mx-auto mb-4" />
+        <h3 class="text-xl font-semibold mb-2">Always Exploring</h3>
+        <p class="text-muted-foreground max-w-2xl mx-auto">
+          I'm constantly trying new tools and technologies. This list is updated regularly 
+          as I discover better ways to work and create.
+        </p>
+      </section>
+    </div>
+  </Container>
+</Layout>

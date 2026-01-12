@@ -1,0 +1,231 @@
+'use client'
+
+import { useEffect, useState, useCallback } from 'react'
+
+interface CommandItem {
+  id: string
+  title: string
+  description?: string
+  icon: string
+  action: () => void
+  keywords?: string[]
+}
+
+const CommandPalette = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [search, setSearch] = useState('')
+
+  const commands: CommandItem[] = [
+    {
+      id: 'home',
+      title: 'Home',
+      description: 'Go to homepage',
+      icon: 'home',
+      action: () => window.location.href = '/',
+      keywords: ['home', 'main', 'index']
+    },
+    {
+      id: 'about',
+      title: 'About Me',
+      description: 'Learn more about me',
+      icon: 'user',
+      action: () => window.location.href = '/about',
+      keywords: ['about', 'info', 'profile', 'cv']
+    },
+    {
+      id: 'projects',
+      title: 'Projects',
+      description: 'View my projects',
+      icon: 'code',
+      action: () => window.location.href = '/projects',
+      keywords: ['projects', 'work', 'portfolio']
+    },
+    {
+      id: 'blog',
+      title: 'Blog',
+      description: 'Read my articles',
+      icon: 'book',
+      action: () => window.location.href = '/blog',
+      keywords: ['blog', 'articles', 'posts', 'writing']
+    },
+    {
+      id: 'stats',
+      title: 'Stats',
+      description: 'View coding statistics',
+      icon: 'chart',
+      action: () => window.location.href = '/stats',
+      keywords: ['stats', 'statistics', 'github', 'coding']
+    },
+    {
+      id: 'uses',
+      title: 'Uses',
+      description: 'Tools and software I use',
+      icon: 'tool',
+      action: () => window.location.href = '/uses',
+      keywords: ['uses', 'tools', 'setup', 'software', 'hardware']
+    },
+    {
+      id: 'github',
+      title: 'GitHub',
+      description: 'View my GitHub profile',
+      icon: 'github',
+      action: () => window.open('https://github.com/Khoahuynh2511', '_blank'),
+      keywords: ['github', 'code', 'repository']
+    },
+    {
+      id: 'linkedin',
+      title: 'LinkedIn',
+      description: 'Connect on LinkedIn',
+      icon: 'linkedin',
+      action: () => window.open('https://www.linkedin.com/in/huynh-dang-khoa-846786218/', '_blank'),
+      keywords: ['linkedin', 'connect', 'network']
+    },
+    {
+      id: 'email',
+      title: 'Email',
+      description: 'Send me an email',
+      icon: 'mail',
+      action: () => window.location.href = 'mailto:dangkhoahuynh2511@gmail.com',
+      keywords: ['email', 'contact', 'mail']
+    },
+    {
+      id: 'cv',
+      title: 'Download CV',
+      description: 'Download my resume',
+      icon: 'download',
+      action: () => {
+        const link = document.createElement('a')
+        link.href = '/CV_HuynhDangKhoa.pdf'
+        link.download = 'CV_HuynhDangKhoa.pdf'
+        link.click()
+      },
+      keywords: ['cv', 'resume', 'download']
+    },
+    {
+      id: 'theme',
+      title: 'Toggle Theme',
+      description: 'Switch dark/light mode',
+      icon: 'sun',
+      action: () => {
+        document.documentElement.classList.toggle('dark')
+      },
+      keywords: ['theme', 'dark', 'light', 'mode']
+    }
+  ]
+
+  const filteredCommands = commands.filter(cmd => {
+    const searchLower = search.toLowerCase()
+    return (
+      cmd.title.toLowerCase().includes(searchLower) ||
+      cmd.description?.toLowerCase().includes(searchLower) ||
+      cmd.keywords?.some(k => k.includes(searchLower))
+    )
+  })
+
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault()
+      setIsOpen(prev => !prev)
+    }
+    if (e.key === 'Escape') {
+      setIsOpen(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [handleKeyDown])
+
+  useEffect(() => {
+    if (isOpen) {
+      setSearch('')
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
+  const handleSelect = (cmd: CommandItem) => {
+    setIsOpen(false)
+    cmd.action()
+  }
+
+  const getIcon = (icon: string) => {
+    const icons: Record<string, JSX.Element> = {
+      home: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>,
+      user: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>,
+      code: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>,
+      book: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>,
+      chart: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
+      tool: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
+      github: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>,
+      linkedin: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>,
+      mail: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
+      download: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>,
+      sun: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>,
+    }
+    return icons[icon] || icons.code
+  }
+
+  if (!isOpen) return null
+
+  return (
+    <div className="fixed inset-0 z-50 overflow-y-auto">
+      <div 
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+        onClick={() => setIsOpen(false)}
+      />
+      
+      <div className="relative min-h-screen flex items-start justify-center pt-[20vh] px-4">
+        <div className="relative w-full max-w-lg bg-card border rounded-xl shadow-2xl overflow-hidden">
+          <div className="flex items-center border-b px-4">
+            <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search commands..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full px-4 py-4 bg-transparent border-0 outline-none text-foreground placeholder:text-muted-foreground"
+              autoFocus
+            />
+            <kbd className="hidden sm:inline-flex px-2 py-1 text-xs bg-muted rounded">ESC</kbd>
+          </div>
+          
+          <div className="max-h-[300px] overflow-y-auto p-2">
+            {filteredCommands.length > 0 ? (
+              filteredCommands.map((cmd) => (
+                <button
+                  key={cmd.id}
+                  onClick={() => handleSelect(cmd)}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left"
+                >
+                  <span className="text-muted-foreground">{getIcon(cmd.icon)}</span>
+                  <div className="flex-1">
+                    <div className="font-medium">{cmd.title}</div>
+                    {cmd.description && (
+                      <div className="text-sm text-muted-foreground">{cmd.description}</div>
+                    )}
+                  </div>
+                </button>
+              ))
+            ) : (
+              <div className="text-center py-8 text-muted-foreground">
+                No commands found
+              </div>
+            )}
+          </div>
+          
+          <div className="border-t px-4 py-2 flex items-center justify-between text-xs text-muted-foreground">
+            <span>Press <kbd className="px-1.5 py-0.5 bg-muted rounded">Enter</kbd> to select</span>
+            <span><kbd className="px-1.5 py-0.5 bg-muted rounded">Ctrl</kbd> + <kbd className="px-1.5 py-0.5 bg-muted rounded">K</kbd> to toggle</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default CommandPalette
