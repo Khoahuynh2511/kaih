@@ -163,124 +163,304 @@ import { Icon } from 'astro-icon/components'
       <section class="bg-card rounded-lg p-8 shadow-sm border">
         <h2 class="text-2xl font-semibold border-b pb-2 mb-6 flex items-center">
           <Icon name="lucide:code" class="h-5 w-5 mr-2 text-primary" />
-          Skills
+          Technical Skills
         </h2>
         
-        <div class="grid grid-cols-1 gap-6">
-          <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-5 rounded-lg">
-            <h3 class="text-xl font-medium mb-3 flex items-center">
-              <Icon name="lucide:brain" class="h-4 w-4 mr-2 text-primary" />
-              AI Skills
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="skill-card">
+            <h3 class="skill-title">
+              <Icon name="lucide:layout" class="h-4 w-4 mr-2 text-blue-500" />
+              Frontend Development
             </h3>
-            <p class="text-muted-foreground text-justify">
-              Proficient in Machine Learning, Deep Learning, NLP, and Computer Vision. 
-              Experienced in Python and AI libraries (e.g., scikit-learn, TensorFlow, Transformers), 
-              with familiarity in Generative AI (GenAI). Skilled in AI-driven process analysis, 
-              automation design, and prompt engineering for LLMs (e.g., GPT). 
-              Capable of integrating AI tools (OCR, chatbot, speech-to-text, etc.) into business 
-              workflows and evaluating new AI technologies to enhance operational efficiency.
-            </p>
+            <div class="skill-tags">
+              <span class="skill-tag tag-primary">React</span>
+              <span class="skill-tag tag-primary">Next.js</span>
+              <span class="skill-tag tag-primary">Angular 19</span>
+              <span class="skill-tag tag-secondary">TypeScript</span>
+              <span class="skill-tag tag-secondary">JavaScript</span>
+              <span class="skill-tag tag-accent">TailwindCSS</span>
+              <span class="skill-tag tag-accent">Shadcn/ui</span>
+              <span class="skill-tag tag-accent">PrimeNG</span>
+              <span class="skill-tag tag-muted">Three.js</span>
+              <span class="skill-tag tag-muted">WebGL</span>
+            </div>
+            <p class="skill-desc">Built 10+ responsive web apps with modern frameworks, real-time data streaming (SSE), and 3D visualizations.</p>
           </div>
           
-          <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-5 rounded-lg">
-            <h3 class="text-xl font-medium mb-3 flex items-center">
-              <Icon name="lucide:database" class="h-4 w-4 mr-2 text-primary" />
-              Data Analysis / Science Skills
+          <div class="skill-card">
+            <h3 class="skill-title">
+              <Icon name="lucide:server" class="h-4 w-4 mr-2 text-green-500" />
+              Backend Development
             </h3>
-            <p class="text-muted-foreground text-justify">
-              Strong in data cleaning, wrangling, and feature engineering using Python (pandas, NumPy), 
-              SQL, and Excel (including VBA). Proficient in data visualization with Power BI, Tableau, 
-              Matplotlib, and Seaborn. Skilled in statistical analysis, A/B testing, predictive modeling, 
-              and sales forecasting. Experienced in writing complex SQL queries, building interactive dashboards, 
-              and extracting insights from large-scale eCommerce data (orders, SKUs, customers, campaigns). 
-              Familiar with Big Data tools (Hadoop, Spark) and deploying machine learning models using 
-              Scikit-learn and TensorFlow.
-            </p>
+            <div class="skill-tags">
+              <span class="skill-tag tag-primary">Node.js</span>
+              <span class="skill-tag tag-primary">Express</span>
+              <span class="skill-tag tag-primary">Python FastAPI</span>
+              <span class="skill-tag tag-secondary">Java Spring Boot</span>
+              <span class="skill-tag tag-accent">REST API</span>
+              <span class="skill-tag tag-muted">GraphQL</span>
+            </div>
+            <p class="skill-desc">Designed microservices architecture, hybrid backend systems (Java + Python), and scalable API solutions.</p>
           </div>
           
-          <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-5 rounded-lg">
-            <h3 class="text-xl font-medium mb-3 flex items-center">
-              <Icon name="lucide:code" class="h-4 w-4 mr-2 text-primary" />
-              Software Engineer Skills
+          <div class="skill-card">
+            <h3 class="skill-title">
+              <Icon name="lucide:smartphone" class="h-4 w-4 mr-2 text-purple-500" />
+              Mobile Development
             </h3>
-            <p class="text-muted-foreground text-justify">
-              Proficient in C++, Java, and JavaScript, with strong experience building AI-powered web applications 
-              and recommendation systems. Skilled in developing full-stack solutions using Python, React/Next.js, 
-              and Node.js, integrating both backend APIs and dynamic frontends. Experienced in working with SQL 
-              (MySQL, PostgreSQL, DBeaver) and NoSQL databases (MongoDB, Firebase Firestore), with a focus on 
-              data modeling, performance tuning, and real-time synchronization. Familiar with Docker, Redis, 
-              Elasticsearch, and Firebase for scalable infrastructure, caching, search indexing, and app deployment.
-            </p>
-            <p class="text-muted-foreground mt-2 text-justify">
-              Advanced skills in building and integrating recommendation algorithms (collaborative filtering, 
-              matrix factorization, hybrid models), and working with AI frameworks such as PyTorch, TensorFlow, 
-              HuggingFace Transformers, LangChain, and the OpenAI API. Well-versed in RESTful API development, 
-              CI/CD workflows, version control with Git, and modern cloud-based deployment strategies. Comfortable 
-              working in Agile/Scrum teams, with a strong foundation in debugging, performance optimization, and 
-              cross-functional collaboration. Especially experienced in delivering scalable, content-driven 
-              platforms for media domains (film streaming, music discovery, etc.).
-            </p>
+            <div class="skill-tags">
+              <span class="skill-tag tag-primary">Android Studio</span>
+              <span class="skill-tag tag-primary">Kotlin</span>
+              <span class="skill-tag tag-secondary">Firebase Auth</span>
+              <span class="skill-tag tag-secondary">Firebase Realtime DB</span>
+              <span class="skill-tag tag-accent">Cloud Messaging</span>
+              <span class="skill-tag tag-muted">Material Design</span>
+            </div>
+            <p class="skill-desc">Developed native Android apps with real-time sync, push notifications, and modern UI patterns.</p>
           </div>
           
-          <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-5 rounded-lg">
-            <h3 class="text-xl font-medium mb-3 flex items-center">
-              <Icon name="lucide:presentation" class="h-4 w-4 mr-2 text-primary" />
-              Business & Project Management Knowledge
+          <div class="skill-card">
+            <h3 class="skill-title">
+              <Icon name="lucide:gamepad-2" class="h-4 w-4 mr-2 text-red-500" />
+              Game Development
             </h3>
-            <p class="text-muted-foreground text-justify">
-              Strong understanding of Scrum and Agile methodologies, with practical experience across the full product lifecycle—from 
-              requirement gathering and MVP definition to release, feedback, and iteration. Proficient in product 
-              performance analytics, customer segmentation (e.g., RFM), conversion funnel analysis, and evaluating 
-              marketing ROI through key metrics such as ROAS, CAC, and LTV. Capable of integrating and analyzing 
-              data from multi-channel platforms including Google Analytics, TikTok Ads, Shopee/Lazada reports, 
-              and CRM/CDP systems (e.g., Insider, MoEngage). Experienced in building automated dashboards for 
-              business intelligence, providing stakeholders with real-time visibility and actionable insights 
-              to support strategic decision-making.
-            </p>
+            <div class="skill-tags">
+              <span class="skill-tag tag-primary">Unity 2D</span>
+              <span class="skill-tag tag-primary">C#</span>
+              <span class="skill-tag tag-secondary">Tilemap</span>
+              <span class="skill-tag tag-secondary">2D Physics</span>
+              <span class="skill-tag tag-accent">Animation Controller</span>
+              <span class="skill-tag tag-muted">Pixel Art</span>
+            </div>
+            <p class="skill-desc">Created platformer and top-down shooter games with enemy AI, health systems, and level progression.</p>
           </div>
           
-          <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-5 rounded-lg">
-            <h3 class="text-xl font-medium mb-3 flex items-center">
-              <Icon name="lucide:wrench" class="h-4 w-4 mr-2 text-primary" />
-              Additional Skills
+          <div class="skill-card">
+            <h3 class="skill-title">
+              <Icon name="lucide:cloud" class="h-4 w-4 mr-2 text-cyan-500" />
+              Cloud & DevOps
             </h3>
-            <p class="text-muted-foreground text-justify">
-              RPA coding, Constraint Programming, Build crawlers with Python (Requests, BeautifulSoup, Selenium, 
-              Playwright); handle CAPTCHA & anti-bot; extract data from eCommerce/news/social platforms; 
-              export to CSV/Excel/JSON; integrate with MongoDB/SQL; used for AI training, trend & product analysis.
-            </p>
+            <div class="skill-tags">
+              <span class="skill-tag tag-primary">Docker</span>
+              <span class="skill-tag tag-primary">Kubernetes</span>
+              <span class="skill-tag tag-secondary">GitHub Actions</span>
+              <span class="skill-tag tag-secondary">CI/CD</span>
+              <span class="skill-tag tag-accent">DigitalOcean</span>
+              <span class="skill-tag tag-accent">Vercel</span>
+              <span class="skill-tag tag-muted">Netlify</span>
+            </div>
+            <p class="skill-desc">Implemented containerized deployments with HPA, zero-downtime CI/CD pipelines, and cloud orchestration.</p>
+          </div>
+          
+          <div class="skill-card">
+            <h3 class="skill-title">
+              <Icon name="lucide:database" class="h-4 w-4 mr-2 text-orange-500" />
+              Database & Storage
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag tag-primary">PostgreSQL</span>
+              <span class="skill-tag tag-primary">MongoDB</span>
+              <span class="skill-tag tag-secondary">MySQL</span>
+              <span class="skill-tag tag-secondary">Redis</span>
+              <span class="skill-tag tag-accent">Supabase</span>
+              <span class="skill-tag tag-accent">Firebase</span>
+              <span class="skill-tag tag-muted">Cloudinary</span>
+            </div>
+            <p class="skill-desc">Designed efficient data models with caching strategies, real-time sync, and media optimization.</p>
           </div>
         </div>
         
-        <div class="mt-6 bg-gradient-to-br from-primary/5 to-primary/10 p-5 rounded-lg">
-          <h3 class="text-xl font-medium mb-3 flex items-center">
-            <Icon name="lucide:languages" class="h-4 w-4 mr-2 text-primary" />
-            Language Skills
-          </h3>
-          <div class="flex flex-wrap gap-4">
-            <div class="flex items-center">
-              <div class="w-28 bg-muted rounded-full h-2 mr-2">
-                <div class="bg-primary h-2 rounded-full w-[100%]"></div>
+        <div class="mt-8 grid grid-cols-1 gap-6">
+          <div class="skill-card skill-card-highlight">
+            <h3 class="skill-title text-lg">
+              <Icon name="lucide:brain" class="h-5 w-5 mr-2 text-pink-500" />
+              AI / Machine Learning
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">Frameworks</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">TensorFlow</span>
+                  <span class="skill-tag tag-primary">PyTorch</span>
+                  <span class="skill-tag tag-secondary">scikit-learn</span>
+                </div>
               </div>
-              <span>Vietnamese (Native)</span>
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">LLM & GenAI</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">LangChain</span>
+                  <span class="skill-tag tag-primary">LangGraph</span>
+                  <span class="skill-tag tag-secondary">OpenAI API</span>
+                  <span class="skill-tag tag-accent">Transformers</span>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">Computer Vision</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">CLIP</span>
+                  <span class="skill-tag tag-secondary">EfficientNet</span>
+                  <span class="skill-tag tag-accent">OpenCV</span>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">Search & RL</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">FAISS</span>
+                  <span class="skill-tag tag-secondary">Qdrant</span>
+                  <span class="skill-tag tag-accent">DQN</span>
+                  <span class="skill-tag tag-muted">CEM-RL</span>
+                </div>
+              </div>
             </div>
-            <div class="flex items-center">
-              <div class="w-28 bg-muted rounded-full h-2 mr-2">
-                <div class="bg-primary h-2 rounded-full w-[85%]"></div>
+            <p class="skill-desc">Built AI chatbots, recommendation engines (collaborative filtering, Recombee), video retrieval systems, image classifiers (97% accuracy), and trained RL agents for game environments.</p>
+          </div>
+          
+          <div class="skill-card skill-card-highlight">
+            <h3 class="skill-title text-lg">
+              <Icon name="lucide:bar-chart-3" class="h-5 w-5 mr-2 text-emerald-500" />
+              Data Engineering & Analytics
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">Processing</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">Python</span>
+                  <span class="skill-tag tag-secondary">pandas</span>
+                  <span class="skill-tag tag-secondary">NumPy</span>
+                  <span class="skill-tag tag-accent">SQL</span>
+                </div>
               </div>
-              <span>English (IELTS 6.0)</span>
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">Visualization</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">Power BI</span>
+                  <span class="skill-tag tag-secondary">Tableau</span>
+                  <span class="skill-tag tag-accent">Matplotlib</span>
+                  <span class="skill-tag tag-muted">Seaborn</span>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">Web Scraping</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">Selenium</span>
+                  <span class="skill-tag tag-secondary">Playwright</span>
+                  <span class="skill-tag tag-accent">BeautifulSoup</span>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">Big Data</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">Hadoop</span>
+                  <span class="skill-tag tag-secondary">Spark</span>
+                  <span class="skill-tag tag-accent">ETL</span>
+                </div>
+              </div>
             </div>
-            <div class="flex items-center">
-              <div class="w-28 bg-muted rounded-full h-2 mr-2">
-                <div class="bg-primary h-2 rounded-full w-[80%]"></div>
+            <p class="skill-desc">Developed data pipelines, built interactive dashboards, implemented A/B testing, and extracted insights from large-scale eCommerce data (orders, SKUs, campaigns).</p>
+          </div>
+        </div>
+        
+        <div class="mt-8 grid grid-cols-1 gap-6">
+          <div class="skill-card skill-card-highlight">
+            <h3 class="skill-title text-lg">
+              <Icon name="lucide:wrench" class="h-5 w-5 mr-2 text-rose-500" />
+              Automation & Additional Skills
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">RPA & Automation</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">RPA Coding</span>
+                  <span class="skill-tag tag-secondary">VBA/Excel</span>
+                  <span class="skill-tag tag-accent">Task Automation</span>
+                </div>
               </div>
-              <span>Chinese (HSK4)</span>
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">Web Crawling</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">Requests</span>
+                  <span class="skill-tag tag-secondary">Anti-bot Bypass</span>
+                  <span class="skill-tag tag-accent">CAPTCHA Handling</span>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">Data Export</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">CSV/Excel</span>
+                  <span class="skill-tag tag-secondary">JSON</span>
+                  <span class="skill-tag tag-accent">MongoDB/SQL</span>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground uppercase tracking-wide mb-2">Others</p>
+                <div class="skill-tags">
+                  <span class="skill-tag tag-primary">Constraint Programming</span>
+                  <span class="skill-tag tag-secondary">Prompt Engineering</span>
+                  <span class="skill-tag tag-accent">API Integration</span>
+                </div>
+              </div>
             </div>
-            <div class="flex items-center">
-              <div class="w-28 bg-muted rounded-full h-2 mr-2">
-                <div class="bg-primary h-2 rounded-full w-[40%]"></div>
+            <p class="skill-desc">Built crawlers extracting data from eCommerce/news/social platforms with anti-bot handling. Created RPA workflows and VBA macros for business process automation. Integrated AI tools (OCR, chatbot, speech-to-text) into enterprise workflows.</p>
+          </div>
+        </div>
+        
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="skill-card">
+            <h3 class="skill-title">
+              <Icon name="lucide:briefcase" class="h-4 w-4 mr-2 text-amber-500" />
+              Business & Product
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag tag-primary">Agile/Scrum</span>
+              <span class="skill-tag tag-secondary">Product Analytics</span>
+              <span class="skill-tag tag-accent">RFM Segmentation</span>
+              <span class="skill-tag tag-muted">A/B Testing</span>
+            </div>
+            <p class="skill-desc">Full product lifecycle experience from MVP to release. Proficient in ROAS, CAC, LTV metrics and multi-channel analytics (GA, TikTok Ads, Shopee/Lazada).</p>
+          </div>
+          
+          <div class="skill-card">
+            <h3 class="skill-title">
+              <Icon name="lucide:languages" class="h-4 w-4 mr-2 text-indigo-500" />
+              Languages
+            </h3>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-sm">Vietnamese</span>
+                <div class="flex items-center gap-2">
+                  <div class="w-24 bg-muted rounded-full h-1.5">
+                    <div class="bg-primary h-1.5 rounded-full w-full"></div>
+                  </div>
+                  <span class="text-xs text-muted-foreground w-16">Native</span>
+                </div>
               </div>
-              <span>Japanese (N5)</span>
+              <div class="flex items-center justify-between">
+                <span class="text-sm">English</span>
+                <div class="flex items-center gap-2">
+                  <div class="w-24 bg-muted rounded-full h-1.5">
+                    <div class="bg-primary h-1.5 rounded-full w-[85%]"></div>
+                  </div>
+                  <span class="text-xs text-muted-foreground w-16">IELTS 6.0</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm">Chinese</span>
+                <div class="flex items-center gap-2">
+                  <div class="w-24 bg-muted rounded-full h-1.5">
+                    <div class="bg-primary h-1.5 rounded-full w-[80%]"></div>
+                  </div>
+                  <span class="text-xs text-muted-foreground w-16">HSK4</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm">Japanese</span>
+                <div class="flex items-center gap-2">
+                  <div class="w-24 bg-muted rounded-full h-1.5">
+                    <div class="bg-primary h-1.5 rounded-full w-[40%]"></div>
+                  </div>
+                  <span class="text-xs text-muted-foreground w-16">N5</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -293,8 +473,8 @@ import { Icon } from 'astro-icon/components'
         </h2>
         
         <div class="space-y-6">
-          <div class="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 p-5 rounded-lg border border-yellow-500/20">
-            <h3 class="text-xl font-semibold mb-4 text-yellow-600 dark:text-yellow-400">Ecombox.vn - International Awards & Recognition (2025)</h3>
+          <div class="bg-primary/5 p-5 rounded-lg">
+            <h3 class="text-xl font-medium mb-4">Ecombox.vn - International Awards & Recognition (2025)</h3>
             <div class="overflow-x-auto">
               <table class="w-full text-sm">
                 <thead>
@@ -403,5 +583,36 @@ import { Icon } from 'astro-icon/components'
     color: transparent;
     --tw-gradient-from: theme('colors.primary.DEFAULT');
     --tw-gradient-to: theme('colors.primary.DEFAULT' / 0.8);
+  }
+  
+  .skill-card {
+    @apply bg-gradient-to-r from-primary/10 to-transparent p-5 rounded-lg border border-primary/20 hover:border-primary/30 transition-colors;
+  }
+  
+  .skill-card-highlight {
+    @apply from-primary/15 to-primary/5 border-primary/25;
+  }
+  
+  .skill-title {
+    @apply text-base font-semibold mb-3 flex items-center;
+  }
+  
+  .skill-tags {
+    @apply flex flex-wrap gap-1.5 mb-3;
+  }
+  
+  .skill-tag {
+    @apply px-2 py-0.5 rounded text-xs font-medium transition-colors;
+  }
+  
+  .tag-primary,
+  .tag-secondary,
+  .tag-accent,
+  .tag-muted {
+    @apply bg-muted text-foreground;
+  }
+  
+  .skill-desc {
+    @apply text-sm text-muted-foreground leading-relaxed;
   }
 </style> 
