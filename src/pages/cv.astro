@@ -1,0 +1,473 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Container from '../components/Container.astro'
+import { Icon } from 'astro-icon/components'
+---
+
+<Layout
+  title="CV | Huynh Dang Khoa"
+  description="Professional CV of Huynh Dang Khoa - Software Engineer, Data Scientist and AI Enthusiast"
+>
+  <div class="print:hidden bg-gradient-to-b from-primary/10 to-background py-6">
+    <Container class="max-w-4xl">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Curriculum Vitae</h1>
+        <button 
+          onclick="window.print()" 
+          class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+        >
+          <Icon name="lucide:printer" class="h-4 w-4" />
+          Print CV
+        </button>
+      </div>
+    </Container>
+  </div>
+  
+  <Container class="py-8 max-w-4xl print:max-w-none print:py-0">
+    <div id="cv-content" class="cv-harvard bg-white text-black print:bg-white">
+      
+      <header class="cv-header">
+        <h1 class="cv-name">HUYNH DANG KHOA</h1>
+        <p class="cv-contact">
+          <a href="mailto:dangkhoahuynh2511@gmail.com">dangkhoahuynh2511@gmail.com</a> | 
+          (+84) 828 888 955 | 
+          <a href="https://linkedin.com/in/khoahuynh2511" target="_blank">LinkedIn</a> | 
+          <a href="https://github.com/khoahuynh2511" target="_blank">GitHub</a> | 
+          <a href="https://kaih.vercel.app" target="_blank" class="portfolio-link">kaih.vercel.app</a>
+        </p>
+      </header>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">PROFESSIONAL SUMMARY</h2>
+        <div class="cv-content">
+          <p>
+            Results-driven <strong>Software Engineer</strong> and <strong>Data Scientist</strong> with proven expertise in 
+            AI/ML, full-stack development, and data engineering. Demonstrated success in building production-ready 
+            AI products at startups, winning national competitions, and contributing to enterprise-scale solutions. 
+            Passionate about leveraging cutting-edge technologies to solve complex business problems.
+          </p>
+          <p class="portfolio-cta">
+            Explore my complete portfolio, projects, and technical blog at 
+            <a href="https://kaih.vercel.app" target="_blank"><strong>kaih.vercel.app</strong></a>
+          </p>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">EDUCATION</h2>
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>University of Information Technology (VNU-HCM)</strong>
+            </div>
+            <div class="cv-entry-date">2022 - 2026 (Expected)</div>
+          </div>
+          <div class="cv-entry-subtitle">
+            Bachelor of Computer Science & Bachelor of Software Engineering (Dual Degree)
+          </div>
+          <ul class="cv-list">
+            <li><strong>GPA:</strong> 8.33/10.0</li>
+            <li><strong>Scholarship:</strong> Excellent Student Scholarship recipient</li>
+            <li><strong>Core Coursework:</strong> Machine Learning, Deep Learning, Distributed Systems, Microservices Architecture, Data Structures & Algorithms, Database Management, Applied Mathematics & Statistics</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">PROFESSIONAL EXPERIENCE</h2>
+        
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Data Engineer</strong> | OnPoint E-Commerce Vietnam
+            </div>
+            <div class="cv-entry-date">May 2025 - Aug 2025</div>
+          </div>
+          <div class="cv-entry-subtitle">Vietnam's Leading E-Commerce Enabler</div>
+          <ul class="cv-list">
+            <li>Developed automated web scraping workflows extracting data from 50+ online sources, improving data collection efficiency by 70%</li>
+            <li>Implemented data cleaning and preprocessing pipelines ensuring 99% data quality for analytics teams</li>
+            <li>Collaborated with cross-functional teams to optimize data collection processes and build internal automation tools</li>
+          </ul>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Data Solutions Intern</strong> | OnPoint E-Commerce Vietnam
+            </div>
+            <div class="cv-entry-date">Mar 2025 - Jun 2025</div>
+          </div>
+          <ul class="cv-list">
+            <li>Analyzed operational processes and identified automation opportunities, resulting in 40% productivity improvement</li>
+            <li>Built internal tools using AI, VBA, and Python to streamline business workflows</li>
+            <li>Partnered with business, product, tech, and strategy teams to understand requirements and deliver solutions</li>
+          </ul>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Software Developer</strong> | Tensoract (Startup)
+            </div>
+            <div class="cv-entry-date">Mar 2025 - Present</div>
+          </div>
+          <div class="cv-entry-subtitle">AI-Powered Solutions Startup</div>
+          <ul class="cv-list">
+            <li>Lead development of AI-powered products solving real-world problems in logistics and creative industries</li>
+            <li><strong>Ecombox.vn:</strong> Packaging optimization platform using Computer Vision - Winner of Startup Wheel 2025</li>
+            <li><strong>Deligent:</strong> AI-driven accessories design platform with text-to-image capabilities</li>
+            <li>Implemented Agile practices, API integration, cloud deployment, and prompt engineering for LLM applications</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">TECHNICAL SKILLS</h2>
+        <div class="cv-content">
+          <p>
+            <strong>AI/ML:</strong> TensorFlow, PyTorch, scikit-learn, LangChain, LangGraph, OpenAI API, Transformers, CLIP, FAISS, Computer Vision, NLP, Reinforcement Learning (DQN, CEM-RL)
+          </p>
+          <p>
+            <strong>Programming:</strong> Python, JavaScript/TypeScript, Java, C++, C#, Kotlin, SQL
+          </p>
+          <p>
+            <strong>Frontend:</strong> React, Next.js, Angular, TailwindCSS, Three.js
+          </p>
+          <p>
+            <strong>Backend:</strong> Node.js, Express, FastAPI, Spring Boot, REST API, GraphQL
+          </p>
+          <p>
+            <strong>Data Engineering:</strong> pandas, NumPy, Selenium, Playwright, BeautifulSoup, Power BI, Tableau, Hadoop, Spark
+          </p>
+          <p>
+            <strong>Databases:</strong> PostgreSQL, MongoDB, MySQL, Redis, Firebase, Supabase
+          </p>
+          <p>
+            <strong>DevOps:</strong> Docker, Kubernetes, GitHub Actions, CI/CD, Vercel, DigitalOcean
+          </p>
+          <p>
+            <strong>Languages:</strong> Vietnamese (Native), English (Fluent - IELTS 6.0), Chinese (HSK4), Japanese (N5)
+          </p>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">AWARDS & ACHIEVEMENTS</h2>
+        
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Champion</strong> - Startup Wheel 2025 (Vietnam Youth Startup)
+            </div>
+            <div class="cv-entry-date">2025</div>
+          </div>
+          <p class="cv-achievement-desc">Top startup in Young Enterprise segment with Ecombox.vn project</p>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Top Startup</strong> - Global EntrePrep Incubator 2025 (GE25)
+            </div>
+            <div class="cv-entry-date">2025</div>
+          </div>
+          <p class="cv-achievement-desc">Selected for global incubation with access to $2M funding from VinVentures, Quest Ventures</p>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Outstanding Figure</strong> - Tuoi Tre Startup Award 2025
+            </div>
+            <div class="cv-entry-date">2025</div>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>2nd Runner-up</strong> - Data Analysis, Heading for the Future Vietnam
+            </div>
+            <div class="cv-entry-date">Jul 2024</div>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Top 5</strong> - Heineken Hackathon (E-commerce)
+            </div>
+            <div class="cv-entry-date">Jul 2024</div>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Top 4</strong> - FinTechNovation (UEH x UOB x Singapore Business Federation)
+            </div>
+            <div class="cv-entry-date">Jul 2024</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">KEY PROJECTS</h2>
+        
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Video Retrieval from Text</strong> | CLIP, FAISS, Python, Streamlit
+            </div>
+            <div class="cv-entry-date">Nov 2024</div>
+          </div>
+          <p class="cv-project-desc">Built semantic video search system enabling efficient retrieval based on natural language queries</p>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Mental Health Chatbot</strong> | Transformers, LangChain, Python
+            </div>
+            <div class="cv-entry-date">Nov 2024</div>
+          </div>
+          <p class="cv-project-desc">Developed empathetic AI chatbot with NLP capabilities for contextual understanding and sentiment analysis</p>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Image Classification</strong> | EfficientNetB7, Deep Learning
+            </div>
+            <div class="cv-entry-date">Jun 2024</div>
+          </div>
+          <p class="cv-project-desc">Achieved 97% accuracy on cattle/horse classification using transfer learning</p>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Reinforcement Learning Agent</strong> | DQN, Double DQN
+            </div>
+            <div class="cv-entry-date">Jun 2024</div>
+          </div>
+          <p class="cv-project-desc">Trained AI agent for Flappy Bird using advanced RL techniques in OpenAI Gym</p>
+        </div>
+
+        <p class="portfolio-projects">
+          View all projects with live demos and source code at 
+          <a href="https://kaih.vercel.app/projects" target="_blank"><strong>kaih.vercel.app/projects</strong></a>
+        </p>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">EXTRACURRICULAR ACTIVITIES</h2>
+        
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Secretary</strong> - Faculty Youth Union, University of Information Technology
+            </div>
+          </div>
+          <p class="cv-project-desc">Led organizational activities fostering teamwork and communication skills</p>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-header">
+            <div class="cv-entry-title">
+              <strong>Event Organizer</strong> - International Events at SECC
+            </div>
+          </div>
+          <p class="cv-project-desc">Collaborated with 300+ team members, communicated with international visitors in multiple languages</p>
+        </div>
+      </section>
+
+      <footer class="cv-footer">
+        <p>
+          Full portfolio, technical blog, and detailed project documentation available at 
+          <a href="https://kaih.vercel.app" target="_blank"><strong>kaih.vercel.app</strong></a>
+        </p>
+      </footer>
+
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  .cv-harvard {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.4;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @media print {
+    .cv-harvard {
+      padding: 0;
+      max-width: none;
+      font-size: 10pt;
+      line-height: 1.3;
+    }
+  }
+
+  .cv-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: 1rem;
+  }
+
+  .cv-name {
+    font-size: 24pt;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  @media print {
+    .cv-name {
+      font-size: 18pt;
+    }
+  }
+
+  .cv-contact {
+    font-size: 10pt;
+    color: #333;
+  }
+
+  .cv-contact a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  .cv-contact a:hover {
+    text-decoration: underline;
+  }
+
+  .portfolio-link {
+    font-weight: bold;
+    color: #0066cc !important;
+  }
+
+  .cv-section {
+    margin-bottom: 1.25rem;
+  }
+
+  .cv-section-title {
+    font-size: 12pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  @media print {
+    .cv-section-title {
+      font-size: 11pt;
+    }
+  }
+
+  .cv-content p {
+    margin-bottom: 0.5rem;
+    text-align: justify;
+    font-size: 10pt;
+  }
+
+  .cv-entry {
+    margin-bottom: 0.75rem;
+  }
+
+  .cv-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+
+  .cv-entry-title {
+    font-size: 10pt;
+  }
+
+  .cv-entry-date {
+    font-size: 10pt;
+    font-style: italic;
+    color: #333;
+  }
+
+  .cv-entry-subtitle {
+    font-size: 10pt;
+    font-style: italic;
+    color: #444;
+    margin-bottom: 0.25rem;
+  }
+
+  .cv-list {
+    margin-left: 1.5rem;
+    margin-top: 0.25rem;
+    font-size: 10pt;
+  }
+
+  .cv-list li {
+    margin-bottom: 0.15rem;
+    text-align: justify;
+  }
+
+  .cv-achievement-desc,
+  .cv-project-desc {
+    font-size: 10pt;
+    color: #333;
+    margin-left: 0;
+    margin-top: 0.1rem;
+  }
+
+  .portfolio-cta,
+  .portfolio-projects {
+    background-color: #f5f5f5;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border-left: 3px solid #0066cc;
+    font-size: 10pt;
+  }
+
+  .portfolio-cta a,
+  .portfolio-projects a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  .cv-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    font-size: 10pt;
+  }
+
+  .cv-footer a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  @media print {
+    @page {
+      margin: 0.5in;
+      size: A4;
+    }
+
+    .cv-harvard {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .portfolio-cta,
+    .portfolio-projects {
+      background-color: #f0f0f0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
